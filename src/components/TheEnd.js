@@ -3,23 +3,11 @@ import Cookies from "js-cookie";
 import axios from "axios";
 import "./style.css";
 
-// devis.typeBien
-// devis.etatBien
-// devis.usageBien
-// devis.situationUser
-// devis.country
-// devis.zipCode
-// devis.montant
-// devis.travaux
-// devis.notaire
-// devis.total
-// devis.email
-
 const TheEnd = props => {
   const { devis, setDevis } = props.context.context;
   const [devierNum, setDevierNum] = useState("");
-  const serverURL = "https://localhost:5000/";
-  //const serverURL = "https://meilleurtauxapi.herokuapp.com/";
+  //const serverURL = "https://localhost:5000/";
+  const serverURL = "https://meilleurtauxapi.herokuapp.com/";
 
   Cookies.remove("devis");
   Cookies.remove("route");

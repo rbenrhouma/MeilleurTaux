@@ -47,7 +47,7 @@ export default function App() {
     <Router>
       <div>
         <nav>
-          <Redirect to={pageIndex} />
+          <Redirect to={"/"} />
         </nav>
         <Switch>
           {/* Page 1  */}

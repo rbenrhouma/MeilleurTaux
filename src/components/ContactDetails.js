@@ -55,7 +55,7 @@ const ContactDetails = props => {
           }}
         />
         <label className="mtCheckboxLabel" for="okmail">
-          J'accepte de recevoir par email des propositions de Meilleurtaux.
+          J'accepte de recevoir par email des propositions de Meilleurtaux. XX
         </label>
       </div>
     </div>

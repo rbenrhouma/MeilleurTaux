@@ -41,8 +41,8 @@ const ScreenBackOffice = ({ serverURL }) => {
             >
               <span>Code postal : {devis.zipCode}</span>
               <span>E-mail : {devis.email}</span>
-              <span>Type du bien : {devis.typeBien}</span>
-              <span>Etat du bien : {devis.etatBien}</span>
+              <span>Type du bien : {devis.typeBienLib}</span>
+              <span>Etat du bien : {devis.etatBienLib}</span>
               <span>Montant total : {devis.total}</span>
             </div>
             <span
