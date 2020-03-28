@@ -1,0 +1,254 @@
+.headerContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 80px;
+}
+.header {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  margin: 20px;
+  border-bottom: #b5b3b3 solid 1px;
+}
+
+.title {
+  font: "Oswald", sans-serif;
+  text-align: left;
+  margin: 20px;
+  color: #ff9600;
+  height: 60px;
+  font-size: 30px;
+  text-transform: uppercase;
+}
+.progress-bar {
+  background-color: rgb(240, 240, 240);
+  width: 815px;
+  height: 5px;
+}
+
+.pagination .btnContainer {
+  width: 300px;
+}
+.btnContainerText {
+  font-weight: bold;
+}
+
+.textBold {
+  font-weight: bold;
+}
+.pagination .btNext {
+  color: #ffffff;
+  background-color: #ff9600;
+  width: 200px;
+  height: 30px;
+  border-radius: 30px;
+}
+
+.pagination .btNextDisabled {
+  color: #9b9b9b;
+  background-color: #8a550b;
+  width: 200px;
+  height: 30px;
+  border-radius: 30px;
+}
+
+.pagination .btNext:hover {
+  color: #ff9600;
+  background-color: #fff;
+  height: 24px;
+  border-width: 3px;
+  border-color: #ff9600;
+  border-style: solid;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 270px;
+}
+
+.pagination a {
+  /* display: block; */
+  font-size: 16px;
+  padding: 10px 30px;
+  cursor: pointer;
+}
+.body {
+  height: 100px;
+}
+.pourcent_bar {
+  position: relative;
+  left: 0;
+  background: #f5e0b7;
+  height: 100%;
+}
+span.pourcent {
+  position: absolute;
+  top: -20px;
+  background: #ff9500;
+  border-radius: 50%;
+  color: #ffffff;
+  display: inline-block;
+  font-weight: bold;
+  line-height: 40px;
+  width: 40px;
+  text-align: center;
+  border: #f5e0b7 solid 3px;
+  z-index: 1;
+}
+
+.goodLocalisation {
+  display: flex;
+  height: 50px;
+  margin-left: 50px;
+  align-items: center;
+  justify-content: left;
+  flex-direction: column;
+}
+
+.theEndBody {
+  display: flex;
+  height: 50px;
+  margin-left: 50px;
+  align-items: center;
+  justify-content: left;
+  flex-direction: row;
+}
+
+.radioGroup {
+  display: flex;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+.btnRadio {
+  margin: 10px;
+  font: Verdana, Geneva, sans-serif;
+  font-size: 18px;
+  text-align: center;
+  height: 80px;
+  display: table;
+  width: 100%;
+  cursor: pointer;
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+
+.btnRadio span {
+  vertical-align: middle;
+  display: table-cell;
+  font-weight: bold;
+}
+
+.btnRadioSelectedText {
+  color: #ffffff;
+}
+.btnRadioUnSelectedText {
+  color: #000000;
+}
+.btnRadioUnSelectedText:hover {
+  color: #ffffff;
+}
+
+.btnRadioUnselected {
+  background-color: #ffffff;
+  border: #8f8f8f solid 1px;
+  border-bottom: #cecece solid 4px;
+}
+
+.btnRadioUnselected:hover {
+  background-color: #ff9600;
+  color: #ffffff;
+  border-bottom: #ff6200 solid 4px;
+}
+
+.btnRadioSelected {
+  background-color: #ff9600;
+  border-bottom: #ff6200 solid 4px;
+}
+
+.mentionsLegalesTitle {
+  text-align: left;
+  margin: 20px;
+}
+.mentionsLegales {
+  font-size: medium;
+  text-decoration: underline #ff9500;
+}
+
+.mentionsLegalesText {
+  font-size: small;
+  text-decoration: initial;
+}
+.radioBtn {
+  width: 5%;
+  height: 1.3em;
+}
+.devisAlertContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.center {
+  padding: 60px 25px;
+  color: #ffffff;
+  background-color: #ff9500;
+  text-align: center;
+  width: 250px;
+  height: 120px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.mtCheckbox {
+  transform: scale(1.8);
+}
+
+.mtCheckboxLabel {
+  margin-left: 10px;
+  margin-top: 20px;
+}
+
+.mtCheckboxContainer {
+  text-align: left;
+  margin-left: 50px;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.hideElement {
+  visibility: hidden;
+}
+
+.noneElement {
+  display: none;
+}
+.backObbiceBtn {
+  color: #ffffff;
+  background-color: #ff9600;
+  padding-top: 3px;
+  padding-left: 65px;
+  margin: 30px;
+  width: 150px;
+  height: 40px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 18px;
+  cursor: pointer;
+}
+.backObbiceBtn:hover {
+  color: #ff9600;
+  background-color: #ffffff;
+  border: #ff9600 solid 3px;
+}
+
+.backObbiceInput {
+  width: 250px;
+  height: 30px;
+  border-radius: 2px;
+  font-size: 18px;
+}
