@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import ProgressBar from "./ProgressBar";
 import MentionsLegales from "./MentionsLegales";
@@ -7,6 +7,7 @@ const Footer = props => {
   const history = useHistory();
   const { pageIndex, setPageIndex, nextPath, priorPath, devis } = props.context;
   const [requiredFields, setRequiredFields] = useState("");
+
   const maxPage = 8;
 
   const onPriorPage = () => {
@@ -20,43 +21,52 @@ const Footer = props => {
   };
 
   const isFormValide = () => {
-    console.log("-------");
-    console.log(devis);
+    let isValid = true;
+    setRequiredFields("");
     if (pageIndex === 1) {
       //  type de bien
+      isValid = devis.typeBien > 0;
       setRequiredFields("Type de bien");
-      return devis.typeBien > 0;
+      return isValid;
     } else if (pageIndex === 2) {
       // Etat du bien
-      return devis.etatBien > 0;
       setRequiredFields("Etat de bien");
+      isValid = devis.etatBien > 0;
+      return isValid;
     } else if (pageIndex === 3) {
       // Usage du bien
-      return devis.etatBien > 0;
-      setRequiredFields("");
+      setRequiredFields("Usage du bien");
+      isValid = devis.usageBien > 0;
+      return isValid;
     } else if (pageIndex === 4) {
-      return devis.etatBien > 0;
-      setRequiredFields("");
+      // Situation actuelle.
+      setRequiredFields("Situation actuelle");
+      isValid = devis.situationUser > 0;
+      return isValid;
     } else if (pageIndex === 5) {
-      return devis.etatBien > 0;
-      setRequiredFields("");
+      // Code Postal
+      setRequiredFields("Code postal");
+      isValid = devis.zipCode !== "";
+      return isValid;
     } else if (pageIndex === 6) {
-      return devis.etatBien > 0;
-      setRequiredFields("");
+      // Montant.
+      setRequiredFields("Montant du bien.");
+      isValid = devis.total > 0;
+      return isValid;
     } else if (pageIndex === 7) {
-      return devis.etatBien > 0;
-      setRequiredFields("");
+      setRequiredFields("email valide et accepter les conditions.");
+      isValid = devis.email !== "";
+      return isValid;
     }
-
-    return true;
+    return isValid;
   };
 
-  const onNextPage = () => {
+  const onNextPage = async () => {
     if (nextPath && isFormValide() === true) {
       history.push(nextPath);
       setPageIndex(Number(pageIndex) + 1);
     } else {
-      alert("Veuillez remplir les champs obligatoires\n" + requiredFields);
+      //alert("Veuillez remplir les champs obligatoires\n");
       console.log(props);
     }
     console.log(props);
@@ -79,6 +89,7 @@ const Footer = props => {
         </div>
         {pageIndex < maxPage && <ProgressBar pourcentage={progression()} />}
         <div className="btnContainer">
+          <div style={{ margin: "10px", color: "red" }}>{requiredFields}</div>
           {pageIndex < maxPage && (
             <a className={"next btNext"} onClick={onNextPage}>
               <span className="btnContainerText">

@@ -111,7 +111,7 @@ const ScreenBackOffice = ({ serverURL }) => {
             paddingTop: "100px"
           }}
         >
-          <h1>Welcome to Back-Office</h1>
+          <h1>Administration</h1>
           <form
             onSubmit={handleSubmit}
             style={{ display: "flex", alignItems: "center" }}

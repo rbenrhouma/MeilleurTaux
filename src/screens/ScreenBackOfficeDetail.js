@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import ReactLoading from "react-loading";
+
 import axios from "axios";
 
 const ScreenBackOfficeDetail = ({ serverURL }) => {
   const { id } = useParams();
 
-  const [isLoading, setIsLoading] = useState(true);
   const [devis, setDevis] = useState();
 
   useEffect(() => {
@@ -32,7 +31,6 @@ const ScreenBackOfficeDetail = ({ serverURL }) => {
       try {
         const response = await axios.get(serverURL + `devis?id=${id}`);
         setDevis(createData(response.data));
-        setIsLoading(false);
       } catch (err) {
         console.log(err);
       }
@@ -42,25 +40,7 @@ const ScreenBackOfficeDetail = ({ serverURL }) => {
 
   return (
     <>
-      {isLoading ? (
-        <div
-          style={{
-            paddingTop: "100px",
-            display: "flex",
-            flex: "1",
-            justifyContent: "center"
-          }}
-        >
-          <ReactLoading
-            type="spinningBubbles"
-            color="black"
-            height={100}
-            width={100}
-          />
-        </div>
-      ) : (
-        <div>{devis}</div>
-      )}
+      <div>{devis}</div>
     </>
   );
 };
