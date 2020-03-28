@@ -4,7 +4,10 @@ import ReactLoading from "react-loading";
 import axios from "axios";
 import Cookies from "js-cookie";
 
-const ScreenBackOffice = ({ serverURL }) => {
+const ScreenBackOffice = props => {
+  console.log("welcome to backoffice");
+  const {  serverURL } = props;
+
   const history = useHistory();
 
   const [isLoading, setIsLoading] = useState(true);
@@ -59,7 +62,7 @@ const ScreenBackOffice = ({ serverURL }) => {
                 }
               }}
             >
-              X
+              Supprimer
             </span>
           </div>
         );

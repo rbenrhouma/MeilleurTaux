@@ -5,21 +5,21 @@ import conf from "../assets/confidentiel.png";
 import "./style.css";
 
 const ContactDetails = props => {
-  const { checkFormValide } = props;
   const { devis, setDevis } = props.context.context;
 
   const [mail, setMail] = useState("");
-  const [formeValide, setFormeValide] = useState(false);
+
   const [eMailValide, setEMailValide] = useState(false);
   const [okMail, setOkMail] = useState(false);
 
   useEffect(() => {
-    setFormeValide(okMail && eMailValide);
     devis.email = mail;
+    devis.okMail = okMail;
   }, [okMail, eMailValide, mail]);
 
   const onChange = e => {
-    setMail(e.target.value);
+    if (e.target.name === "email") setMail(e.target.value);
+    else if (e.target.name === "okmail") setOkMail(e.target.checked);
   };
 
   function handleChange(e) {}
@@ -50,12 +50,10 @@ const ContactDetails = props => {
           type="checkbox"
           id="okmail"
           name="okmail"
-          onChange={() => {
-            setOkMail(!okMail);
-          }}
+          onChange={onChange}
         />
         <label className="mtCheckboxLabel" for="okmail">
-          J'accepte de recevoir par email des propositions de Meilleurtaux. XX
+          J'accepte de recevoir par email des propositions de Meilleurtaux.
         </label>
       </div>
     </div>

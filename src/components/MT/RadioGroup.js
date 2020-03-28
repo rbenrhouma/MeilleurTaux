@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import RadioBoutton from "./RadioBoutton";
-
 import "../style.css";
 
 const RadioGroup = props => {
@@ -9,17 +8,18 @@ const RadioGroup = props => {
   const { InterfaceData } = props;
   const { setDevis, devis } = props.context.context;
   const [selectedText, setSelectedText] = useState("");
-  const [selectedItem, setSelectedItem] = useState(() => {
-    return -1;
-  });
+  const [selectedItem, setSelectedItem] = useState(-1);
+  const [firstVisir, setFirstVisit] = useState(true);
 
   const onSelectItem = e => {
     const idx = e.target.getAttribute("index") * 1;
     setSelectedItem(idx);
     setSelectedText(e.target.innerText);
+    setFirstVisit(false);
   };
 
   useEffect(() => {
+    console.log(field);
     if (field === "typeBien") {
       devis.typeBien = selectedItem;
       devis.typeBienLib = selectedText;
@@ -33,8 +33,14 @@ const RadioGroup = props => {
       devis.situationUser = selectedItem;
       devis.situationUserLib = selectedText;
     }
-    console.log(devis);
   }, [selectedItem]);
+
+  // useEffect(() => {
+  //   console.log("creation");
+  // }, []);
+  useEffect(() => {
+    console.log("creation");
+  });
 
   return (
     <>

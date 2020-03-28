@@ -5,7 +5,7 @@ import MTInput from "./MTInput";
 export default function MTZipCode(props) {
   const { name, handleChange, value, type, diasabled } = props;
   const { devis } = props.context.context;
-  console.log(devis);
+
   const [zipCode, setZipCode] = useState("");
   const [zipCodes, setZipCodes] = useState([]);
 

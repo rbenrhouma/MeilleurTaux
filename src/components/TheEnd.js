@@ -4,16 +4,16 @@ import axios from "axios";
 import "./style.css";
 
 const TheEnd = props => {
-  const { devis, setDevis } = props.context.context;
+  const { devis, setDevis, serverURL } = props.context.context;
+
   const [devierNum, setDevierNum] = useState("");
-  //const serverURL = "https://localhost:5000/";
-  const serverURL = "https://meilleurtauxapi.herokuapp.com/";
+
+
 
   Cookies.remove("devis");
   Cookies.remove("route");
   Cookies.remove("page");
 
-  console.log(devis);
   const saveData = async () => {
     if (
       devis.typeBien &&
@@ -46,7 +46,7 @@ const TheEnd = props => {
         Cookies.remove("page");
         setDevis({});
       } catch (err) {
-        alert(err.message);
+        console.log(err.message);
         console.log(err);
       }
     } else {

@@ -10,7 +10,7 @@ const Header = props => {
   useEffect(() => {}, []);
 
   const onClick = () => {
-    console.log("Lance back office");
+    //console.log("Lance back office");
     // // provisoire
 
     Cookies.remove("devis");
@@ -21,7 +21,7 @@ const Header = props => {
     // Cookies.remove("route", "xxxx");
     // Cookies.remove("page", "xxxx");
 
-    //history.push("/backoffice");
+    history.push("/backoffice");
   };
 
   return (
@@ -35,7 +35,7 @@ const Header = props => {
           className={pageIndex === 8 ? "backObbiceBtn" : "noneElement"}
           onClick={onClick}
         >
-          Back Office
+          Administration
         </div>
         <div>
           <input

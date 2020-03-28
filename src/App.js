@@ -30,6 +30,8 @@ export default function App() {
   const [nextPath, setNextPath] = useState("/");
   const [priorPath, setPriorPath] = useState("/");
 
+  const serverURL = "https://meilleurtauxapi.herokuapp.com/";
+
   useEffect(() => {
     Cookies.set("devis", devis);
   }, [devis]);
@@ -140,13 +142,21 @@ export default function App() {
           </Route>
 
           {/* Page 9 : BackOffice */}
-          <Route path={PagesPaths[8]}>
-            <ScreenBackOffice />
+          <Route path="/backoffice">
+            <ScreenBackOffice
+              serverURL={serverURL}
+              devis={devis}
+              setDevis={setDevis}
+            />
           </Route>
 
           {/* Page 10 : Détails */}
           <Route path="/details/:id">
-            <ScreenBackOfficeDetails />
+            <ScreenBackOfficeDetails
+              serverURL={serverURL}
+              devis={devis}
+              setDevis={setDevis}
+            />
           </Route>
         </Switch>
       </div>

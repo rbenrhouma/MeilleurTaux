@@ -14,6 +14,7 @@ const Footer = props => {
     if (priorPath) {
       history.push(priorPath);
       setPageIndex(Number(pageIndex) - 1);
+      setRequiredFields("");
     } else {
       alert("Erreur");
       console.log(props);
@@ -55,21 +56,21 @@ const Footer = props => {
       return isValid;
     } else if (pageIndex === 7) {
       setRequiredFields("email valide et accepter les conditions.");
-      isValid = devis.email !== "";
+      isValid = devis.email !== "" && devis.okMail;
       return isValid;
     }
+
     return isValid;
   };
 
   const onNextPage = async () => {
-    if (nextPath && isFormValide() === true) {
+    if (nextPath && isFormValide()) {
       history.push(nextPath);
+      setRequiredFields("");
       setPageIndex(Number(pageIndex) + 1);
     } else {
       //alert("Veuillez remplir les champs obligatoires\n");
-      console.log(props);
     }
-    console.log(props);
   };
 
   const progression = () => {

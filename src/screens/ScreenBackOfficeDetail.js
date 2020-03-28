@@ -3,8 +3,9 @@ import { useParams } from "react-router-dom";
 
 import axios from "axios";
 
-const ScreenBackOfficeDetail = ({ serverURL }) => {
+const ScreenBackOfficeDetail = props => {
   const { id } = useParams();
+  const { serverURL } = props;
 
   const [devis, setDevis] = useState();
 
