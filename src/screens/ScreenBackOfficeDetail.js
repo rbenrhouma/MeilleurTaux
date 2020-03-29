@@ -5,7 +5,7 @@ import axios from "axios";
 
 const ScreenBackOfficeDetail = props => {
   const { id } = useParams();
-  const { serverURL } = props;
+  const serverURL = "https://meilleurtauxapi.herokuapp.com/";
 
   const [devis, setDevis] = useState();
 

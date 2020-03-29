@@ -4,12 +4,13 @@ import axios from "axios";
 import "./style.css";
 
 const TheEnd = props => {
-  const { devis, setDevis, serverURL } = props.context.context;
+  const { devis, setDevis } = props.context.context;
+
+  const serverURL = "https://meilleurtauxapi.herokuapp.com/";
 
   const [devierNum, setDevierNum] = useState("");
 
-
-
+  // pour test
   Cookies.remove("devis");
   Cookies.remove("route");
   Cookies.remove("page");
@@ -40,7 +41,6 @@ const TheEnd = props => {
           email: devis.email
         });
         setDevierNum(response.data.key);
-
         Cookies.remove("devis");
         Cookies.remove("route");
         Cookies.remove("page");
