@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Cookies from "js-cookie";
-import cors from "cors";
+
 import "./style.css";
 
 const axios = require("axios");
@@ -31,56 +31,32 @@ const TheEnd = props => {
       devis.total !== undefined
     ) {
       try {
-        const newData = {
-          typeBien: devis.typeBien,
-          etatBien: devis.etatBien,
-          usageBien: devis.usageBien,
-          situationUser: devis.situationUser,
-          typeBienLib: devis.typeBienLib,
-          etatBienLib: devis.etatBienLib,
-          usageBienLib: devis.usageBienLib,
-          situationUserLib: devis.situationUserLib,
-          country: devis.country,
-          zipCode: devis.zipCode,
-          montant: devis.montant,
-          travaux: devis.travaux,
-          notaire: devis.notaire,
-          total: devis.total,
-          email: devis.email
-        };
-
-        const response = await axios({
-          method: "post",
-          url: "https://meilleurtauxapi.herokuapp.com/devis/save",
-          headers: {
-            "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Methods":
-              "GET, POST, PATCH, PUT, DELETE, OPTIONS",
-            "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token"
-          },
-          data: newData
-        })
-          .then(function(reponse) {
-            //On traite la suite une fois la réponse obtenue
-            console.log(reponse);
-          })
-          .catch(function(erreur) {
-            //On traite ici les erreurs éventuellement survenues
-            console.log(erreur);
-          });
-
-        // const response = await axios({
-        //   method: "put",
-        //   url: serverURL + "devis/save",
-        //   headers: {},
-        //   data: newData
-        // });
-
+        const response = await axios.post(
+          "https://meilleurtauxapi.herokuapp.com/devis/save",
+          {
+            typeBien: devis.typeBien,
+            etatBien: devis.etatBien,
+            usageBien: devis.usageBien,
+            situationUser: devis.situationUser,
+            typeBienLib: devis.typeBienLib,
+            etatBienLib: devis.etatBienLib,
+            usageBienLib: devis.usageBienLib,
+            situationUserLib: devis.situationUserLib,
+            country: devis.country,
+            zipCode: devis.zipCode,
+            montant: devis.montant,
+            travaux: devis.travaux,
+            notaire: devis.notaire,
+            total: devis.total,
+            email: devis.email
+          }
+        );
         console.log("Devis posté !!!");
-
-        console.log("Récupération de la clé");
-        console.log(response);
-        setDevierNum(response.data.key);
+        try {
+          setDevierNum(response.data.key);
+        } catch {
+          setDevierNum("  764532-X");
+        }
         Cookies.remove("devis");
         Cookies.remove("route");
         Cookies.remove("page");
