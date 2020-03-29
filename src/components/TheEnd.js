@@ -8,11 +8,7 @@ const axios = require("axios");
 const TheEnd = props => {
   const { devis, setDevis } = props.context.context;
 
-  const serverURL = "https://meilleurtauxapi.herokuapp.com/";
-
   const [devierNum, setDevierNum] = useState("");
-
-  console.log(devis);
 
   const saveData = async () => {
     //  Champs obligatoires : code postal, l'email, le type de bien (et son état) ainsi que le montant total de l'emprunt.
@@ -20,7 +16,9 @@ const TheEnd = props => {
       devis.zipCode &&
       devis.email &&
       devis.typeBien &&
-      devis.usageEtat &&
+      devis.typeBienLib &&
+      devis.etatBien &&
+      devis.etatBienLib &&
       devis.total !== undefined
     ) {
       try {
@@ -31,8 +29,8 @@ const TheEnd = props => {
             email: devis.email,
             typeBien: devis.typeBien,
             typeBienLib: devis.typeBienLib,
-            usageBien: devis.usageBien,
-            usageBienLib: devis.usageBienLib,
+            etatBien: devis.etatBien,
+            etatBienLib: devis.etatBienLib,
             total: devis.total
 
             // etatBien: devis.etatBien,
@@ -61,7 +59,8 @@ const TheEnd = props => {
         console.log(err);
       }
     } else {
-      alert("erreur");
+      console.log("Erreurs: champs obligatoires non renseignées");
+      console.log(devis);
     }
   };
 
