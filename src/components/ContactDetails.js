@@ -39,7 +39,7 @@ const ContactDetails = props => {
         type={"email"}
         odd={true}
         handleChange={onChange}
-        caption={"Adresse email de l'enpreinteur *"}
+        caption={"Adresse email de l'emprunteur *"}
         txtInfo={"bla bla bla 11111111..."}
         icone={conf}
       />

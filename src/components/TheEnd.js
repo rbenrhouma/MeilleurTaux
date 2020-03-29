@@ -6,7 +6,10 @@ import "./style.css";
 const axios = require("axios");
 
 const TheEnd = props => {
-  const { devis, setDevis } = props.context.context;
+  const { devis, setDevis, successAdd, setSuccessAdd } = props.context.context;
+
+  console.log(successAdd);
+  console.log(setSuccessAdd);
 
   const [devierNum, setDevierNum] = useState("");
 
@@ -46,6 +49,7 @@ const TheEnd = props => {
         );
 
         setDevierNum(response.data.key);
+        setSuccessAdd(true);
 
         Cookies.remove("devis");
         Cookies.remove("route");
