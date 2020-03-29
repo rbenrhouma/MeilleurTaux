@@ -12,23 +12,13 @@ const TheEnd = props => {
 
   const [devierNum, setDevierNum] = useState("");
 
-  // test de l'url
-  const config = axios.interceptors.request.use(
-    function(config) {
-      console.log(config);
-      return config;
-    },
-    function(error) {
-      return Promise.reject(error);
-    }
-  );
 
   const saveData = async () => {
     if (
       devis.typeBien &&
       devis.usageBien &&
       devis.email &&
-      devis.total !== undefined
+      devis.total !== undefined &&
     ) {
       try {
         const response = await axios.post(
@@ -52,11 +42,9 @@ const TheEnd = props => {
           }
         );
         console.log("Devis posté !!!");
-        try {
-          setDevierNum(response.data.key);
-        } catch {
-          setDevierNum("  764532-X");
-        }
+
+        setDevierNum(response.data.key);
+
         Cookies.remove("devis");
         Cookies.remove("route");
         Cookies.remove("page");
