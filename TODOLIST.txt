@@ -1,7 +1,1 @@
-Rootes
-Mongodb
-backoffice
-React-tool-tip
-Selection pays
-style of dataList
 

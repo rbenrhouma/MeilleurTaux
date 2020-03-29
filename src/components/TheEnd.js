@@ -10,6 +10,17 @@ const TheEnd = props => {
 
   const [devierNum, setDevierNum] = useState("");
 
+  // test de l'url
+  const config = axios.interceptors.request.use(
+    function(config) {
+      console.log(config);
+      return config;
+    },
+    function(error) {
+      return Promise.reject(error);
+    }
+  );
+
   const saveData = async () => {
     if (
       devis.typeBien &&
@@ -18,8 +29,6 @@ const TheEnd = props => {
       devis.total !== undefined
     ) {
       try {
-        console.log("Devis valide.");
-
         const newData = {
           typeBien: devis.typeBien,
           etatBien: devis.etatBien,
@@ -37,8 +46,6 @@ const TheEnd = props => {
           total: devis.total,
           email: devis.email
         };
-        console.log("New data");
-        console.log(newData);
 
         const response = await axios({
           method: "post",
