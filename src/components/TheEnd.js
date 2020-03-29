@@ -10,11 +10,6 @@ const TheEnd = props => {
 
   const [devierNum, setDevierNum] = useState("");
 
-  // pour test
-  Cookies.remove("devis");
-  Cookies.remove("route");
-  Cookies.remove("page");
-
   const saveData = async () => {
     if (
       devis.typeBien &&
@@ -23,7 +18,9 @@ const TheEnd = props => {
       devis.total !== undefined
     ) {
       try {
-        const response = await axios.post(serverURL + "devis/save", {
+        console.log("Devis valide.");
+
+        const newData = {
           typeBien: devis.typeBien,
           etatBien: devis.etatBien,
           usageBien: devis.usageBien,
@@ -39,13 +36,28 @@ const TheEnd = props => {
           notaire: devis.notaire,
           total: devis.total,
           email: devis.email
+        };
+        console.log("New data");
+        console.log(newData);
+
+        const response = await axios({
+          method: "post",
+          url: serverURL + "devis/save",
+          headers: {},
+          data: newData
         });
+        console.log("Devis posté");
+
+        console.log("Récupération de la clé");
         setDevierNum(response.data.key);
         Cookies.remove("devis");
         Cookies.remove("route");
         Cookies.remove("page");
         setDevis({});
       } catch (err) {
+        Cookies.remove("devis");
+        Cookies.remove("route");
+        Cookies.remove("page");
         console.log(err.message);
         console.log(err);
       }
