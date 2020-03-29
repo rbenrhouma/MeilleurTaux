@@ -30,8 +30,6 @@ export default function App() {
   const [nextPath, setNextPath] = useState("/");
   const [priorPath, setPriorPath] = useState("/");
 
-  const [successAdd, setSuccessAdd] = useState(false);
-
   useEffect(() => {
     Cookies.set("devis", devis);
   }, [devis]);
@@ -44,10 +42,6 @@ export default function App() {
     if (pageIndex > 0) Cookies.set("page", pageIndex);
     else Cookies.set("page", 1);
   }, [pageIndex]);
-
-  useEffect(() => {
-    console.console.log("ajout avec succes");
-  }, [successAdd]);
 
   return (
     <Router>
@@ -142,8 +136,6 @@ export default function App() {
               priorPath={null}
               devis={devis}
               setDevis={setDevis}
-              successAdd={successAdd}
-              setSuccessAdd={setSuccessAdd}
             />
           </Route>
 
