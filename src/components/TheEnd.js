@@ -12,6 +12,8 @@ const TheEnd = props => {
 
   const [devierNum, setDevierNum] = useState("");
 
+  console.log(devis);
+
   const saveData = async () => {
     if (
       devis.typeBien &&
@@ -24,20 +26,21 @@ const TheEnd = props => {
           "https://meilleurtauxapi.herokuapp.com/devis/save",
           {
             typeBien: devis.typeBien,
-            etatBien: devis.etatBien,
             usageBien: devis.usageBien,
-            situationUser: devis.situationUser,
-            typeBienLib: devis.typeBienLib,
-            etatBienLib: devis.etatBienLib,
-            usageBienLib: devis.usageBienLib,
-            situationUserLib: devis.situationUserLib,
-            country: devis.country,
-            zipCode: devis.zipCode,
-            montant: devis.montant,
-            travaux: devis.travaux,
-            notaire: devis.notaire,
-            total: devis.total,
-            email: devis.email
+            email: devis.email,
+            total: devis.total
+
+            // etatBien: devis.etatBien,
+            // situationUser: devis.situationUser,
+            // typeBienLib: devis.typeBienLib,
+            // etatBienLib: devis.etatBienLib,
+            // usageBienLib: devis.usageBienLib,
+            // situationUserLib: devis.situationUserLib,
+            // country: devis.country,
+            // zipCode: devis.zipCode,
+            // montant: devis.montant,
+            // travaux: devis.travaux,
+            // notaire: devis.notaire,
           }
         );
         console.log("Devis posté !!!");
