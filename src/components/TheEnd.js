@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Cookies from "js-cookie";
+import cors from "cors";
 import "./style.css";
+
 const axios = require("axios");
 
 const TheEnd = props => {
@@ -50,6 +52,12 @@ const TheEnd = props => {
         const response = await axios({
           method: "post",
           url: "https://meilleurtauxapi.herokuapp.com/devis/save",
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods":
+              "GET, POST, PATCH, PUT, DELETE, OPTIONS",
+            "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token"
+          },
           data: newData
         })
           .then(function(reponse) {
@@ -68,7 +76,7 @@ const TheEnd = props => {
         //   data: newData
         // });
 
-        console.log("Devis posté");
+        console.log("Devis posté !!!");
 
         console.log("Récupération de la clé");
         console.log(response);
