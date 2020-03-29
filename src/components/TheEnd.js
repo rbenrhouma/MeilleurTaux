@@ -12,13 +12,12 @@ const TheEnd = props => {
 
   const [devierNum, setDevierNum] = useState("");
 
-
   const saveData = async () => {
     if (
       devis.typeBien &&
       devis.usageBien &&
       devis.email &&
-      devis.total !== undefined &&
+      devis.total !== undefined
     ) {
       try {
         const response = await axios.post(
