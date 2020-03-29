@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Cookies from "js-cookie";
-import axios from "axios";
 import "./style.css";
+const axios = require("axios");
 
 const TheEnd = props => {
   const { devis, setDevis } = props.context.context;
@@ -49,13 +49,29 @@ const TheEnd = props => {
 
         const response = await axios({
           method: "post",
-          url: serverURL + "devis/save",
-          headers: {},
+          url: "https://meilleurtauxapi.herokuapp.com/devis/save",
           data: newData
-        });
+        })
+          .then(function(reponse) {
+            //On traite la suite une fois la réponse obtenue
+            console.log(reponse);
+          })
+          .catch(function(erreur) {
+            //On traite ici les erreurs éventuellement survenues
+            console.log(erreur);
+          });
+
+        // const response = await axios({
+        //   method: "put",
+        //   url: serverURL + "devis/save",
+        //   headers: {},
+        //   data: newData
+        // });
+
         console.log("Devis posté");
 
         console.log("Récupération de la clé");
+        console.log(response);
         setDevierNum(response.data.key);
         Cookies.remove("devis");
         Cookies.remove("route");
