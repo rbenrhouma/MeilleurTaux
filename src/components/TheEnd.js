@@ -15,29 +15,32 @@ const TheEnd = props => {
   console.log(devis);
 
   const saveData = async () => {
+    //  Champs obligatoires : code postal, l'email, le type de bien (et son état) ainsi que le montant total de l'emprunt.
     if (
-      devis.typeBien &&
-      devis.usageBien &&
+      devis.zipCode &&
       devis.email &&
+      devis.typeBien &&
+      devis.usageEtat &&
       devis.total !== undefined
     ) {
       try {
         const response = await axios.post(
           "https://meilleurtauxapi.herokuapp.com/devis/save",
           {
-            typeBien: devis.typeBien,
-            usageBien: devis.usageBien,
+            zipCode: devis.zipCode,
             email: devis.email,
+            typeBien: devis.typeBien,
+            typeBienLib: devis.typeBienLib,
+            usageBien: devis.usageBien,
+            usageBienLib: devis.usageBienLib,
             total: devis.total
 
             // etatBien: devis.etatBien,
             // situationUser: devis.situationUser,
-            // typeBienLib: devis.typeBienLib,
             // etatBienLib: devis.etatBienLib,
             // usageBienLib: devis.usageBienLib,
             // situationUserLib: devis.situationUserLib,
             // country: devis.country,
-            // zipCode: devis.zipCode,
             // montant: devis.montant,
             // travaux: devis.travaux,
             // notaire: devis.notaire,
